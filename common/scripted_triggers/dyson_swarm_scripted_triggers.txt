@@ -1,0 +1,74 @@
+#scripted trigger which indicates which planets are considered what by the script
+#any planets added by mods can be added here
+dyson_is_asteroid = {
+	OR = {
+		is_planet_class = pc_asteroid
+		is_planet_class = pc_crystal_asteroid
+		is_planet_class = pc_rare_crystal_asteroid
+		###the belt###
+		is_planet_class = pc_habitable_asteroid
+		is_planet_class = pc_asteroid_base
+		is_planet_class = pc_moon_base
+	}
+}
+
+dyson_is_molten_planet = {
+	is_planet_class = pc_molten
+}
+
+dyson_is_minable_planet = {
+	OR = {
+		is_planet_class = pc_barren
+		is_planet_class = pc_barren_cold
+		is_planet_class = pc_broken
+		is_planet_class = pc_frozen
+	}
+}
+
+dyson_is_ice_asteroid = {
+	is_planet_class = pc_ice_asteroid
+}
+
+dyson_is_gas_giant = {
+	is_planet_class = pc_gas_giant
+}
+
+dyson_is_ruined_mega = {
+	OR = {
+	#vanilla
+		is_megastructure_type = ring_world_ruined
+		is_megastructure_type = dyson_sphere_ruined
+		is_megastructure_type = spy_orb_ruined
+		is_megastructure_type = think_tank_ruined
+		is_megastructure_type = matter_decompressor_ruined
+		is_megastructure_type = strategic_coordination_center_ruined
+		is_megastructure_type = interstellar_assembly_ruined
+		is_megastructure_type = mega_shipyard_ruined
+		is_megastructure_type = mega_art_installation_ruined
+		is_megastructure_type = crisis_sphere_ruined
+	#GIGAS
+		is_megastructure_type = ring_world_gargantuan_ruined
+		is_megastructure_type = ring_world_behemoth_ruined
+		is_megastructure_type = war_planet_debris
+		is_megastructure_type = alderson_disk_ruined_left
+		is_megastructure_type = alderson_disk_ruined_center
+		is_megastructure_type = alderson_disk_ruined_right
+		is_megastructure_type = yggdrasil_orchid_ruined
+		is_megastructure_type = ring_world_titanic_ruined
+		is_megastructure_type = r_square_world_ruined
+		is_megastructure_type = ehof_presphere_ruined
+		is_megastructure_type = neutronium_gigaforge_ruined
+		is_megastructure_type = ehof_megastructure_ruined
+		is_megastructure_type = ehof_megastructure_ruined_origin
+		is_megastructure_type = war_moon_debris_cold_barren
+		is_megastructure_type = war_moon_debris_barren
+		is_megastructure_type = war_moon_debris_frozen
+		is_megastructure_type = war_moon_debris_molten
+		is_megastructure_type = war_moon_debris_disco
+		is_megastructure_type = war_moon_debris_luna
+		is_megastructure_type = particle_accelerator_ruined
+		is_megastructure_type = orbital_artificial_eco_ruined
+		is_megastructure_type = macro_test_site_ruined
+		is_megastructure_type = terraform_barren_2_disabled
+	}
+}

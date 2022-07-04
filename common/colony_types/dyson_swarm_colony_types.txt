@@ -1,0 +1,437 @@
+# dyson_swarm
+col_dyson_swarm = {
+	icon = GFX_colony_type_habitat
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+	}
+
+	weight_modifier = {
+		base = 1000
+	}
+}
+
+
+# dyson Energy
+col_dyson_swarm_energy = {
+	icon = GFX_colony_type_habitat_energy
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+	}
+	planet_modifier = {
+		planet_dyson_swarm_solar_stations_build_speed_mult = 0.25
+		planet_technician_produces_mult = 0.1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+				is_gestalt = no
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+		modifier = {
+			planet_jobs_worker_produces_mult = 0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+				is_gestalt = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+		modifier = {
+			planet_jobs_simple_drone_produces_mult = 0.1
+		}
+	}
+	weight_modifier = {
+		base = 200
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = energy value < 0 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_dyson_swarm_energy
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_swarm_solar_stations value >= 3 }
+		}
+	}
+}
+
+# Dyson Trade
+col_dyson_swarm_trade = {
+	icon = GFX_colony_type_habitat_trade
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+	}
+	planet_modifier = {
+		planet_dyson_swarm_market_stations_build_speed_mult = 0.25
+		trade_value_mult = 0.20
+	}
+	weight_modifier = {
+		base = 300
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = energy value < 0 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_habitat_trade
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_swarm_market_stations value >= 3 }
+		}
+	}
+}
+
+# Habitat Research
+col_dyson_swarm_research = {
+	icon = GFX_colony_type_habitat_research
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+	}
+	planet_modifier = {
+		planet_dyson_swarm_zero_g_labs_build_speed_mult = 0.25
+		planet_researchers_produces_mult = 0.1
+	}
+	weight_modifier = {
+		base = 300
+		modifier = {
+			factor = 2
+			OR = {
+				owner = { has_monthly_income = { resource = physics_research value < 100 } }
+				owner = { has_monthly_income = { resource = society_research value < 100 } }
+				owner = { has_monthly_income = { resource = engineering_research value < 100 } }
+			}
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_dyson_swarm_research
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_swarm_zero_g_labs value >= 3 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_research_lab_1 value >= 2 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_research_lab_2 value >= 2 }
+		}
+		modifier = {
+			factor = 2
+			num_buildings = { type = building_research_lab_3 value >= 2 }
+		}
+	}
+}
+
+# Dyson Mining
+col_dyson_swarm_mining = {
+	icon = GFX_colony_type_habitat_mining
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+	}
+	planet_modifier = {
+		planet_dyson_swarm_mining_bays_build_speed_mult = 0.25
+		planet_miners_produces_mult = 0.1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			has_modifier = dyson_starscooping
+		}
+		planet_dyson_swarm_starscooping_district_build_speed_mult = 0.25
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+				is_gestalt = no
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+		modifier = {
+			planet_jobs_worker_produces_mult = 0.1
+		}
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+				is_gestalt = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_greatergood_five_year_plans"
+				is_active_resolution = "resolution_greatergood_greater_than_ourselves"
+				is_active_resolution = "resolution_greatergood_balance_in_the_middle"
+				is_active_resolution = "resolution_greatergood_universal_prosperity_mandate"
+			}
+		}
+		modifier = {
+			planet_jobs_simple_drone_produces_mult = 0.1
+		}
+	}
+
+	weight_modifier = {
+		base = 1000
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = minerals value < 0 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_dyson_swarm_mining
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_swarm_mining_bays value >= 3 }
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_swarm_starscooping_district value >= 3 }
+		}
+	}
+}
+
+# Dyson Swarm Industrial
+col_dyson_swarm_industrial = {
+	icon = GFX_colony_type_hab_industrial
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+	}
+	planet_modifier = {
+		planet_dyson_industrial_build_speed_mult = 0.25
+		planet_metallurgists_upkeep_mult = -0.1
+		planet_artisans_upkeep_mult = -0.1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_artisans_produces_mult = 0.05
+			planet_metallurgists_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		base = 600
+		modifier = {
+			factor = 3
+			AND = {
+				OR = {
+					has_building = building_factory_1
+					has_building = building_factory_2
+					has_building = building_factory_3
+				}
+				OR = {
+					has_building = building_foundry_1
+					has_building = building_foundry_2
+					has_building = building_foundry_3
+				}
+			}
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_dyson_swarm_industrial
+		}
+		modifier = {
+			factor = 0
+			num_districts = { type = dyson_industrial value = 0 }
+		}
+	}
+}
+
+# Dyson Foundry
+col_dyson_swarm_foundry = {
+	icon = GFX_colony_type_habitat_foundry
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+	}
+	planet_modifier = {
+		custom_tooltip = col_habitat_foundry_custom
+		planet_dyson_industrial_build_speed_mult = 0.25
+		planet_metallurgists_upkeep_mult = -0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_metallurgists_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		base = 300
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = alloys value < 10 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_dyson_swarm_foundry
+		}
+		modifier = {
+			add = 2
+			has_building = building_foundry_1
+		}
+		modifier = {
+			add = 4
+			has_building = building_foundry_2
+		}
+		modifier = {
+			factor = 0
+			num_buildings = { type = building_foundry_1 value = 0 }
+			num_buildings = { type = building_foundry_2 value = 0 }
+			NOT = { num_districts = { type = dyson_industrial value >= 3 } }
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_industrial value >= 3 }
+		}
+	}
+}
+
+# Dyson Factory
+col_dyson_swarm_factory = {
+	icon = GFX_colony_type_habitat_factory
+
+	potential = {
+		is_planet_class = pc_dyson_swarm
+		exists = owner
+		owner = { country_uses_consumer_goods = yes }
+	}
+	planet_modifier = {
+		custom_tooltip = col_habitat_factory_custom
+		planet_district_hab_industrial_build_speed_mult = 0.25
+		planet_artisans_upkeep_mult = -0.2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_galactic_community_member = yes
+			}
+			OR = {
+				is_active_resolution = "resolution_industry_environmental_ordinance_waivers"
+				is_active_resolution = "resolution_industry_project_cornucopia"
+			}
+		}
+		modifier = {
+			planet_artisans_produces_mult = 0.05
+		}
+	}
+
+	weight_modifier = {
+		base = 500
+		modifier = {
+			factor = 2
+			owner = { has_monthly_income = { resource = consumer_goods value < 5 } }
+		}
+		modifier = {
+			factor = 3
+			has_designation = col_dyson_swarm_factory
+		}
+		modifier = {
+			add = 2
+			has_building = building_factory_1
+		}
+		modifier = {
+			add = 4
+			has_building = building_factory_2
+		}
+		modifier = {
+			factor = 0
+			num_buildings = { type = building_factory_1 value = 0 }
+			num_buildings = { type = building_factory_2 value = 0 }
+			NOT = { num_districts = { type = dyson_industrial value >= 3 } }
+		}
+		modifier = {
+			factor = 3
+			num_districts = { type = dyson_industrial value >= 3 }
+		}
+	}
+}
+
+col_primitive_clone = {
+	icon = GFX_colony_type_primitive
+
+	potential = {
+		exists = owner
+		owner = { is_country_type = primitive_clone }
+	}
+
+	weight_modifier = {
+		base = 1000
+	}
+}
+col_arrested_development = {
+	icon = GFX_colony_type_primitive
+
+	potential = {
+		exists = owner
+		owner = { 
+			is_country_type = primitive_clone
+			has_country_flag = arrested_development_age
+		}
+	}
+
+	weight_modifier = {
+		base = 2000
+	}
+}

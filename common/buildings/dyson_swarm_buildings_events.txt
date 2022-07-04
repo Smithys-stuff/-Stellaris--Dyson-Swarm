@@ -1,0 +1,76 @@
+#bunker building for Void Civic
+building_underground_bunker = {
+	base_buildtime = 360
+	capital = yes
+	can_build = no
+	can_demolish = no
+	can_be_ruined = no
+	can_be_disabled = no
+
+	category = government
+	
+	potential = {
+		exists = owner
+		owner = { is_regular_empire = yes }
+	}
+	
+	planet_modifier = {
+		job_miner_add = 4
+		planet_housing_add = 6
+		planet_amenities_add = 6
+		planet_max_buildings_add = 1
+	}
+	
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			energy = 1
+		}		
+	}
+
+	triggered_desc = {
+		text = job_miner_effect_desc
+	}
+}
+#special building for the ME starting civic. Not buildable and wont get replaced if the player doesn't have servitor civic active.
+building_dyson_organic_sanctuary_station_clone = {
+	base_buildtime = 1
+	can_build = no
+
+	category = unity
+	
+	potential = {
+		is_planet_class = pc_dyson_swarm
+	}
+	
+	convert_to = {
+		building_organic_sanctuary
+	}
+
+	planet_modifier = {
+		planet_housing_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = { owner = { is_machine_empire = yes } }
+		job_bio_trophy_add = 1
+		job_maintenance_drone_add = 1
+	}
+
+	triggered_desc = {
+		trigger = { owner = { is_machine_empire = yes } }
+		text = job_maintenance_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = { owner = { is_machine_empire = yes } }
+		text = job_bio_trophy_effect_desc
+	}
+	
+	resources = {
+		category = planet_buildings
+		upkeep = {
+			energy = 2
+			minerals = 2
+		}
+	}
+}

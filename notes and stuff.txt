@@ -1,0 +1,20 @@
+Just some notes and ideas.
+
+ideas for next update:
+- different stations for hive/lithoid empires
+- some more stations from the new shipsets (conditional, only if dlc installed)
+- origin for lithoids: they live as space dwelling creatures, with asteroid houses built around a star. can eat planets from the start of the game, but that is the only way they can increase their size.
+- new origin: void dwellers + lost home
+- new tech: Advanced Supermassive Logistics, which allows empires to mine planets from any system and add their size to a random dyson swarm in their empire. This does however require a starbase with a special building. Or maybe something like gigas planetary mass
+- dyson swarm primitives
+- endgame: option to replace mining with leisure habitats
+
+- encalve building: option to let enclave reestablish itself if it gets destroyed 
+
+
+-alternate dyson swarm building:
+	-a slow process that requires some sort of outpost/source for materials
+	-decide what districts/buffs the swarm will have over the course of the building (solarpanels or no upkeep, trade or science, solar panels district or free upkeep (+egalitarian ethics), etc)
+	-random events about complications, etc.
+	-centralization mechanic: How self-sufficent are the habitats? Maybe some sort of buff+debuff for higher/lower centralization. Free jobs for higher revolt chance/less income?
+

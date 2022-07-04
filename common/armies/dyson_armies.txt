@@ -1,0 +1,12 @@
+
+dyson_primitive_army = {
+	defensive = yes
+	damage = 0.6
+	health = 1
+	morale = 1
+	icon = GFX_army_type_primitive
+	
+	potential = {
+		owner = { is_country_type = primitive_clone }
+	}
+}

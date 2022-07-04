@@ -1,0 +1,990 @@
+dyson_swarm_solar_stations = {
+	base_buildtime = 320
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+	}
+
+	potential = {
+		uses_district_set = Dyson_swarm
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 1
+			minerals = 1
+		}	
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		job_technician_drone_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_technician_drone_add = 2
+	}	
+		
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_technician_add = 2
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_technician_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+				is_fallen_empire_spiritualist = no
+			}
+		}
+		text = job_technician_effect_desc
+	}
+
+	ai_resource_production = {
+		energy = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+dyson_swarm_mining_bays = {
+	base_buildtime = 320
+	is_capped_by_modifier = yes
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+		NOT = { has_modifier = dyson_starscooping }
+	}
+
+	potential = {
+		uses_district_set = Dyson_swarm
+		NOT = { has_modifier = dyson_starscooping }
+	}
+
+	conversion_ratio = 1.0
+	convert_to = {
+		dyson_swarm_starscooping_district
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 1
+			minerals = 1
+		}	
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			OR = { 
+				owner = { is_machine_empire = yes }
+				owner = { is_hive_empire = yes }
+			}
+		}
+		job_mining_drone_add = 2
+	}	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		job_miner_add = 2
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_mining_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { 
+				is_gestalt = no
+			}
+		}
+		text = job_miner_effect_desc
+	}
+
+	ai_resource_production = {
+		minerals = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+#upgrade for the mining district: the starscooping district
+dyson_swarm_starscooping_district = {
+	base_buildtime = 740
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+		has_modifier = dyson_starscooping
+	}
+	
+	potential = {
+		uses_district_set = Dyson_swarm
+		has_modifier = dyson_starscooping
+	}
+
+	conversion_ratio = 1.0
+	convert_to = {
+		dyson_swarm_mining_bays
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 600
+			alloys = 100
+		}
+		upkeep = {
+			energy = 1
+			minerals = 1
+		}	
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			OR = { 
+				owner = { is_machine_empire = yes }
+				owner = { is_hive_empire = yes }
+			}
+		}
+		job_mining_drone_add = 2
+	}	
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_miner_add = 2
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_mining_drone_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		text = job_miner_effect_desc
+	}
+
+	ai_resource_production = {
+		minerals = 1
+		trigger = {
+			always = yes
+		}
+	}
+}
+
+dyson_swarm_zero_g_labs = {
+	base_buildtime = 310
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		is_planet_class = pc_dyson_swarm
+	}
+	
+	potential = {
+		is_planet_class = pc_dyson_swarm
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 3
+			minerals = 1
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		job_researcher_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		job_brain_drone_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_calculator_add = 2
+	}
+	
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_regular_empire = yes } 
+		}
+		text = job_researcher_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_hive_empire = yes } 
+		}
+		text = job_brain_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = { 
+			exists = owner
+			owner = { is_machine_empire = yes } 
+		}
+		text = job_calculator_effect_desc
+	}
+}
+
+dyson_industrial = {
+	base_buildtime = 680
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+	}
+	
+	potential = {
+		uses_district_set = Dyson_swarm
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 600
+		}
+		upkeep = {
+			energy = 2
+			minerals = 1
+		}	
+		
+		upkeep = {
+			trigger = {
+				exists = owner
+				owner = {
+					has_edict = industrial_maintenance
+				}
+			}
+			energy = 2
+		}	
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_crafter_empire = yes }
+		}
+		planet_max_buildings_add = 0.34
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = no
+			}
+		}
+		job_artisan_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_crafter_empire = yes }
+		}
+		job_artificer_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		job_foundry_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = yes
+			}
+		}
+		job_catalytic_technician_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		job_alloy_drone_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		job_fabricator_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_catalytic_empire = yes
+			}
+		}
+		job_catalytic_drone_add = 2
+	}
+
+	# Designation Job Changes
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_foundry
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = no
+			}
+		}
+		job_artisan_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_foundry
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = yes
+			}
+		}
+		job_artificer_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_foundry
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		job_foundry_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_foundry
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = yes
+			}
+		}
+		job_catalytic_technician_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_factory
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = no
+			}
+		}
+		job_artisan_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_factory
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = yes
+			}
+		}
+		job_artificer_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_factory
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		job_foundry_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_factory
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = yes
+			}
+		}
+		job_catalytic_technician_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_factory
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				country_uses_consumer_goods = yes
+				is_catalytic_empire = no
+			}
+		}
+		job_artisan_drone_add = 1
+		job_fabricator_add = -1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			has_designation = col_dyson_swarm_factory
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				country_uses_consumer_goods = yes
+				is_catalytic_empire = yes
+			}
+		}
+		job_artisan_drone_add = 1
+		job_catalytic_drone_add = -1
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = no
+			}
+		}
+		text = job_artisan_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_crafter_empire = yes
+			}
+		}
+		text = job_artificer_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				country_uses_consumer_goods = yes
+			}
+		}
+		text = job_artisan_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		text = job_foundry_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_regular_empire = yes
+				is_catalytic_empire = yes
+			}
+		}
+		text = job_catalytic_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		text = job_fabricator_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_hive_empire = yes
+				is_catalytic_empire = no
+			}
+		}
+		text = job_alloy_drone_effect_desc
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+				is_catalytic_empire = yes
+			}
+		}
+		text = job_catalytic_drone_effect_desc
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				has_edict = industrial_maintenance
+			}
+		}
+		job_dyson_maintenance_drone_add = 1
+	}
+
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = {
+				is_machine_empire = yes
+				has_edict = industrial_maintenance
+			}
+		}
+		text = job_dyson_maintenance_drone_effect_desc
+	}
+
+	ai_resource_production = {
+		alloys = 1
+		trigger = {
+			always = yes
+		}
+	}
+	ai_resource_production = {
+		consumer_goods = 1
+		trigger = {
+			owner = {
+				country_uses_consumer_goods = yes
+			}
+		}
+	}
+}
+
+dyson_swarm_market_stations = {
+	base_buildtime = 310
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+		from = { is_gestalt = no }
+	}
+	
+	potential = {
+		uses_district_set = Dyson_swarm
+		exists = owner
+		owner = { is_gestalt = no  }
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		dyson_organic_sanctuary
+		dyson_spawning_chamber
+		dyson_computer_hub
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 3
+			minerals = 1
+		}	
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_xura
+				}
+			}
+			exotic_gases = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_riggan
+				}
+			}
+			volatile_motes = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_muutag
+				}
+			}
+			rare_crystals = 0.1
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 3
+		job_clerk_add = 3
+	}
+	
+	triggered_desc = {
+		text = job_clerk_effect_desc
+	}	
+
+	ai_resource_production = {
+		energy = 2
+		trigger = {
+			always = yes
+		}
+	}
+}
+#rogue servitor
+dyson_organic_sanctuary = {
+	base_buildtime = 310
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+		from = { has_valid_civic = civic_machine_servitor }
+	}
+	
+	potential = {
+		uses_district_set = Dyson_swarm
+		owner = { 
+			exists = owner
+			has_valid_civic = civic_machine_servitor
+		}
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		dyson_swarm_market_stations
+		dyson_spawning_chamber
+		dyson_computer_hub
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 2
+			minerals = 1
+		}	
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_xura
+				}
+			}
+			exotic_gases = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_riggan
+				}
+			}
+			volatile_motes = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_muutag
+				}
+			}
+			rare_crystals = 0.1
+		}
+	}
+	
+	planet_modifier = {
+		job_bio_trophy_add = 6
+		job_artisan_drone_add = 1
+		planet_housing_add = 1
+	}
+	
+	triggered_desc = {
+		text = job_bio_trophy_effect_desc
+	}
+}
+#hive
+dyson_spawning_chamber = {
+	base_buildtime = 310
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+		From = { is_hive_empire = yes }
+	}
+	
+	potential = {
+		uses_district_set = Dyson_swarm
+		exists = owner
+		owner = { is_hive_empire = yes }
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		dyson_swarm_market_stations
+		dyson_organic_sanctuary
+		dyson_computer_hub
+	}
+	
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 400
+			food = 400
+		}
+		upkeep = {
+			energy = 3
+			food = 1
+		}	
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_xura
+				}
+			}
+			exotic_gases = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_riggan
+				}
+			}
+			volatile_motes = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_muutag
+				}
+			}
+			rare_crystals = 0.1
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_hive_empire = yes }
+		}
+		job_dyson_spawning_drone_add = 1
+		job_dyson_zerog_farmer_drone_add = 2
+	}
+	
+	triggered_desc = {
+		text = job_dyson_spawning_drone_effect_desc
+	}
+}
+#non servitor machine
+dyson_computer_hub = {
+	base_buildtime = 310
+	is_capped_by_modifier = no
+	
+	show_on_uncolonized = {
+		uses_district_set = Dyson_swarm
+		From = { 
+			NOT = { has_valid_civic = civic_machine_servitor } 
+			is_machine_empire = yes
+		}
+	}
+	
+	potential = {
+		uses_district_set = Dyson_swarm
+		exists = owner
+		Owner = { 
+			NOT = { has_valid_civic = civic_machine_servitor } 
+			is_machine_empire = yes
+		}
+	}
+	
+	conversion_ratio = 1
+	convert_to = {
+		dyson_swarm_market_stations
+		dyson_organic_sanctuary
+		dyson_spawning_chamber
+	}
+
+	resources = {
+		category = planet_districts
+		cost = {
+			minerals = 400
+		}
+		upkeep = {
+			energy = 3
+			minerals = 1
+		}		
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_xura
+				}
+			}
+			exotic_gases = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_riggan
+				}
+			}
+			volatile_motes = 0.1
+		}
+		produces = {
+			trigger = {
+				THIS = {
+					has_building = building_dyson_enclave_alliance
+					has_planet_flag = enclave_muutag
+				}
+			}
+			rare_crystals = 0.1
+		}
+	}
+	
+	planet_modifier = {
+		planet_housing_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_machine_empire = yes }
+		}
+		job_coordinator_add = 3
+	}
+	
+	triggered_desc = {
+		text = job_coordinator_effect_desc
+	}
+}

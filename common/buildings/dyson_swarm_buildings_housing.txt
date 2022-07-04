@@ -1,0 +1,281 @@
+#housing
+building_housing_stations_1 = {
+	base_buildtime = 480
+
+	category = amenity
+	
+	potential = {
+		is_planet_class = pc_dyson_swarm
+	}
+		
+	planet_modifier = {
+		planet_housing_add = 5
+		planet_max_buildings_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { has_active_tradition = tr_domination_imperious_architecture }					
+		}
+		planet_housing_add = 1
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_dyson_maintenance_technician_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_gestalt = yes }
+		}
+		job_dyson_maintenance_drone_add = 1
+	}
+	
+#ecology compatability
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+			has_global_flag = EcologyMod_active
+		}
+		job_waste_handler_add = 1
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		job_waste_drone_add = 1
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 300
+			alloys = 30
+		}
+		upkeep = {
+			energy = 3
+		}
+	}	
+	
+	upgrades = {
+		building_housing_stations_2
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_dyson_maintenance_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_dyson_maintenance_drone_effect_desc
+	}
+}
+
+building_housing_stations_2 = {
+	base_buildtime = 480
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		is_planet_class = pc_dyson_swarm
+	}
+		
+	planet_modifier = {
+		planet_housing_add = 10
+		planet_max_buildings_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				has_active_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		planet_housing_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_dyson_maintenance_technician_add = 2
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		job_dyson_maintenance_drone_add = 2
+	}
+	
+#ecology compatability
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+			has_global_flag = EcologyMod_active
+		}
+		job_waste_handler_add = 2
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		job_waste_drone_add = 2
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 500
+			alloys = 50
+			rare_crystals = 50
+		}
+		upkeep = {
+			energy = 2
+			rare_crystals = 1
+		}
+	}
+	
+	upgrades = {
+		building_housing_stations_3
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_dyson_maintenance_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_dyson_maintenance_drone_effect_desc
+	}
+}
+
+building_housing_stations_3 = {
+	base_buildtime = 480
+	can_build = no
+
+	category = amenity
+	
+	potential = {
+		is_planet_class = pc_dyson_swarm
+	}
+
+	planet_modifier = {
+		planet_housing_add = 15
+		planet_max_buildings_add = 2
+	}
+	
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				exists = owner
+				has_active_tradition = tr_domination_imperious_architecture
+			}					
+		}
+		planet_housing_add = 1
+	}
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = { is_gestalt = no }
+		}
+		job_dyson_maintenance_technician_add = 3
+	}
+	triggered_planet_modifier = {
+		potential = {
+			owner = { is_gestalt = yes }
+		}
+		job_dyson_maintenance_drone_add = 3
+	}
+	
+	#ecology compatability
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = no
+			}
+			has_global_flag = EcologyMod_active
+		}
+		job_waste_handler_add = 3
+	}
+
+	triggered_planet_modifier = {
+		potential = {
+			exists = owner
+			owner = {
+				is_gestalt = yes
+			}
+			has_global_flag = EcologyMod_active
+		}
+		job_waste_drone_add = 3
+	}
+	
+	resources = {
+		category = planet_buildings
+		cost = {
+			minerals = 1500
+			alloys = 400
+			rare_crystals = 200
+		}
+		upkeep = {
+			energy = 4
+			rare_crystals = 2
+		}
+	}
+	
+	prerequisites = {
+		tech_better_housing_stations
+	}
+	
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_regular_empire = yes }
+		}
+		text = job_dyson_maintenance_technician_effect_desc
+	}
+	triggered_desc = {
+		trigger = {
+			exists = owner
+			owner = { is_gestalt = yes }
+		}
+		text = job_dyson_maintenance_drone_effect_desc
+	}
+}
